@@ -39,3 +39,5 @@ $string['splittermsdescription'] = 'When enabled, terms seperated by spaces will
 $string['restrictcontext'] = 'Restrict results by category';
 $string['restrictcontextdescription'] = 'When enabled, only courses under the current category will be returned from searches on category pages.';
 $string['coursestartdate'] = 'Start date';
+
+$string['privacy:metadata'] = 'The block_efquicklist doesn\'t store any data.';
