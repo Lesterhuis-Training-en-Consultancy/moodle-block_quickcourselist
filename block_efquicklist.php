@@ -32,7 +32,7 @@
 class block_efquicklist extends block_base {
 
     private $globalconf;
-    
+
     public function init() {
         $this->content_type = BLOCK_TYPE_TEXT;
         $this->globalconf = get_config('block_efquicklist');
@@ -45,10 +45,10 @@ class block_efquicklist extends block_base {
 
     //stop it showing up on any add block lists
     public function applicable_formats() {
-        return (array(  
-            'all' => false, 
-            'site' => true, 
-            'my' => true, 
+        return (array(
+            'all' => false,
+            'site' => true,
+            'my' => true,
             'course-index' => true
         ));
     }
@@ -61,14 +61,16 @@ class block_efquicklist extends block_base {
      * Displays the form for searching courses, and the results if a search as been submitted
      *
      * @access public
-     * @return
+     * @return stdClass|stdObject
+     * @throws coding_exception
+     * @throws moodle_exception
      */
     public function get_content() {
-        global $CFG, $DB;
+        global $OUTPUT;
         if ($this->content !== null) {
             return $this->content;
         }
-        
+
         $this->content = new stdClass();
         $context_block = context_block::instance($this->instance->id);
         $search = optional_param('efquicklistsearch', '', PARAM_TEXT);
@@ -84,8 +86,10 @@ class block_efquicklist extends block_base {
                 'value' => $search
             );
             $input = html_writer::empty_tag('input', $inputattrs);
+
+
             $progressattrs = array(
-                'src' => $this->page->theme->pix_url('i/loading_small', 'moodle'),
+                'src' => $OUTPUT->image_url('i/loading_small', 'moodle'),
                 'class' => 'quickcourseprogress',
                 'id' => 'quickcourseprogress',
                 'alt' => get_string('loading', 'block_efquicklist')
@@ -107,8 +111,8 @@ class block_efquicklist extends block_base {
 
             if (!empty($quickcoursesubmit)) {
 
-                $courses = self::get_courses($search, $context_block, $this->globalconf->splitterms, 
-                                             $this->globalconf->restrictcontext, $this->page->context); 
+                $courses = self::get_courses($search, $context_block, $this->globalconf->splitterms,
+                                             $this->globalconf->restrictcontext, $this->page->context);
                 if (!empty($courses)) {
                     foreach ($courses as $course) {
                         $url = new moodle_url('/course/view.php', array('id' => $course->id));
@@ -123,7 +127,7 @@ class block_efquicklist extends block_base {
                             case 2: $resultstr = $course->fullname; break;
                             default: $resultstr = $course->shortname.': '.$course->fullname; break;
                         endswitch;
-                        
+
                         $link = html_writer::tag('a',
                                                  $resultstr,
                                                  array('href' => $url->out()));
@@ -160,7 +164,7 @@ class block_efquicklist extends block_base {
         return $this->content;
     }
 
-    public static function get_courses($search, $blockcontext, $splitterms = false, 
+    public static function get_courses($search, $blockcontext, $splitterms = false,
                                        $restrictcontext = false, $pagecontext = null) {
         global $DB;
         $params = array(SITEID);
