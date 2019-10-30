@@ -1,8 +1,8 @@
-Quick Course List Block for Moodle
+## Quick Course List Block for Moodle
 
 This block allows quick searching of Moodle courses, and displays a link to the course page.
 
-To install, place all files in /blocks/efquicklist and visit /admin/index.php in your browser.
+To install, place all files in `/blocks/efquicklist` and visit `/admin/index.php` in your browser.
 
 The block is designed first and foremost as an admin tool, so will only be viewable by teachers, admins and managers by default.
 To make it visible by other users, add the block/efquicklist:use capability to the desired roles.
