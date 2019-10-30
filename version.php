@@ -14,14 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
  * Defines the metadata for the Quick Course List block
  *
- * @package    block_efquicklist
+ * @package     block_efquicklist
  * @author      Mark Johnson <mark.johnson@tauntons.ac.uk>
  * @copyright   2010 Tauntons College, UK
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 $plugin->version = 2019102900;
@@ -29,4 +28,3 @@ $plugin->requires = 2014051200;
 $plugin->component = 'block_efquicklist';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = '3.8';
-
