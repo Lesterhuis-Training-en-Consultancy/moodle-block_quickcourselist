@@ -23,8 +23,8 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->version = 2019102900;
+$plugin->version = 2020050900;
 $plugin->requires = 2014051200;
 $plugin->component = 'block_efquicklist';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '3.8';
+$plugin->release = '3.9.0';
