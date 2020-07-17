@@ -30,6 +30,10 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (3.9) - 2020-05-09
+
+### Updated
+- Version number no issues found in Moodle 3.9
 
 ## Version (3.8) - 2019-10-30
 
