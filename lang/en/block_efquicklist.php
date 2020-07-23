@@ -40,4 +40,5 @@ $string['restrictcontext'] = 'Restrict results by category';
 $string['restrictcontextdescription'] = 'When enabled, only courses under the current category will be returned from searches on category pages.';
 $string['coursestartdate'] = 'Start date';
 $string['efquicklist:myaddinstance'] = 'Add a new efquicklist block to Dashboard';
+$string['efquicklist:addinstance'] = 'Add a new efquicklist block';
 $string['privacy:metadata'] = 'The block_efquicklist doesn\'t store any data.';
