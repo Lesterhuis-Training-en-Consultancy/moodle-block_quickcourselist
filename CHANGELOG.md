@@ -30,14 +30,24 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (3.10) - 2020-11-13
+
+##### Updated
+- Version number no issues found in Moodle 3.10
+- TODO convert to more Moodle standard format
+
+##### Added
+- Add some missing defined('MOODLE_INTERNAL') || die;
+
+
 ## Version (3.9) - 2020-05-09
 
-### Updated
+##### Updated
 - Version number no issues found in Moodle 3.9
 
 ## Version (3.8) - 2019-10-30
 
-### Updated
+##### Updated
 - Version number no issues found in Moodle 3.8
 
 ## Added
@@ -46,5 +56,5 @@ Types of changes
 
 ## Version (2.1) - 2018-11-20
 
-### Added
+##### Added
 - Release of the first official stable version.

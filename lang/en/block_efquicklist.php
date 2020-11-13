@@ -24,6 +24,7 @@
  * @copyright   2010 Tauntons College, UK
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+defined('MOODLE_INTERNAL') || die;
 
 $string['blockname'] = 'EF Quick Course List';
 $string['loading'] = 'Loading...';
