@@ -23,6 +23,7 @@
  * @copyright 2018-11-20 MFreak.nl
  * @author    Luuk Verhoeven
  **/
+
 namespace block_efquicklist\privacy;
 
 defined('MOODLE_INTERNAL') || die();

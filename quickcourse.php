@@ -26,6 +26,8 @@
 
 //define('AJAX_SCRIPT', true);
 require_once('../../config.php');
+defined('MOODLE_INTERNAL') || die;
+
 require_once($CFG->dirroot . '/blocks/moodleblock.class.php');
 require_once($CFG->dirroot . '/blocks/efquicklist/block_efquicklist.php');
 
@@ -40,9 +42,9 @@ if (isloggedin() && has_capability('block/efquicklist:use', $context) && confirm
     $output = array();
     if (!empty($course)) {
     $catcontext = context::instance_by_id($pagecontextid, IGNORE_MISSING);
-    $courses = block_efquicklist::get_courses($course, $context, $config->splitterms, 
+    $courses = block_efquicklist::get_courses($course, $context, $config->splitterms,
                                                   $config->restrictcontext, $catcontext);
-        
+
         if (!empty($courses)) {
             foreach ($courses as $course) {
                 $output[] = $course;

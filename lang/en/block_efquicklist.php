@@ -24,6 +24,7 @@
  * @copyright   2010 Tauntons College, UK
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+defined('MOODLE_INTERNAL') || die;
 
 $string['blockname'] = 'EF Quick Course List';
 $string['loading'] = 'Loading...';
@@ -39,5 +40,6 @@ $string['splittermsdescription'] = 'When enabled, terms seperated by spaces will
 $string['restrictcontext'] = 'Restrict results by category';
 $string['restrictcontextdescription'] = 'When enabled, only courses under the current category will be returned from searches on category pages.';
 $string['coursestartdate'] = 'Start date';
-
+$string['efquicklist:myaddinstance'] = 'Add a new efquicklist block to Dashboard';
+$string['efquicklist:addinstance'] = 'Add a new efquicklist block';
 $string['privacy:metadata'] = 'The block_efquicklist doesn\'t store any data.';
