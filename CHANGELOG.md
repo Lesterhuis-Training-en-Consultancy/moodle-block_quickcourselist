@@ -30,6 +30,12 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (3.10.1) - 2022-03-233
+
+##### Added
+- Course Full name and Categorie format
+- Dutch translations
+
 ## Version (3.10) - 2020-11-13
 
 ##### Updated
