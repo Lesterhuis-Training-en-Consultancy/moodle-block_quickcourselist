@@ -28,4 +28,4 @@ $plugin->version = 2022032300;
 $plugin->requires = 2014051200;
 $plugin->component = 'block_efquicklist';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '3.10.0';
+$plugin->release = '3.10.1';
