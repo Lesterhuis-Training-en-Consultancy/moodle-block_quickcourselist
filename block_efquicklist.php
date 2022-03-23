@@ -125,6 +125,7 @@ class block_efquicklist extends block_base {
                         switch ($displaymode):
                             case 1: $resultstr = $course->shortname; break;
                             case 2: $resultstr = $course->fullname; break;
+                            case 5: $resultstr = $course->fullname .' - '. $course->category; break;
                             default: $resultstr = $course->shortname.': '.$course->fullname; break;
                         endswitch;
 
@@ -179,7 +180,7 @@ class block_efquicklist extends block_base {
                 }
                 $terms[$key] = '%'.$term.'%';
             }
-            $params = array_merge($params, $terms, $terms);
+            $params = array_merge($params, $terms);
             $where .= sprintf($like, 'shortname').' OR '.sprintf($like, 'fullname').' OR '.sprintf($like, 'idnumber');
         } else {
             $params = array_merge($params, array("%$search%", "%$search%", "%$search%"));
@@ -197,10 +198,25 @@ class block_efquicklist extends block_base {
         }
 
         $order = 'shortname';
-        $fields = 'id, shortname, fullname, idnumber, startdate';
+        $fields = 'id, shortname, fullname, idnumber, startdate, category';
 
-        $courses = $DB->get_recordset_select('course', $where, $params, $order, $fields);
-    return $courses;
+        return $DB->get_recordset_select('course', $where, $params, $order, $fields);
+    }
+
+    /**
+     * @param int $categoryid
+     *
+     * @return string
+     */
+    public static function get_coursecategory(int $categoryid): string {
+
+        static $categorylist = [];
+
+        if (empty($categorylist)) {
+            $categorylist = \core_course_category::make_categories_list('');
+        }
+
+        return $categorylist[$categoryid] ?? '';
     }
 }
 

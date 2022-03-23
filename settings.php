@@ -19,26 +19,31 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
 
-	$settings->add(new admin_setting_heading('block_efquicklist/displaymode', get_string('displaymode', 'block_efquicklist'), ''));
+    $settings->add(new admin_setting_heading('block_efquicklist/displaymode', get_string('displaymode', 'block_efquicklist'), ''));
 
-	// Possible display modes
-	$displaymode[1] = get_string('shortnamecourse', 'moodle');
-	$displaymode[2] = get_string('fullnamecourse', 'moodle');
-	$displaymode[3] = $displaymode[2].' & '.$displaymode[1];
-        $displaymode[4] = $displaymode[2].' & '. get_string('coursestartdate', 'block_efquicklist');
+    // Possible display modes.
+    $displaymode[1] = get_string('shortnamecourse', 'moodle');
+    $displaymode[2] = get_string('fullnamecourse', 'moodle');
+    $displaymode[3] = $displaymode[2] . ' & ' . $displaymode[1];
+    $displaymode[4] = $displaymode[2] . ' & ' . get_string('coursestartdate', 'block_efquicklist');
+    $displaymode[5] = $displaymode[2] . ' & ' . get_string('coursecategory', 'block_efquicklist');
 
-	$settings->add(new admin_setting_configselect('block_efquicklist/displaymode', get_string('displaymode', 'block_efquicklist'), 
-						get_string('displaymodedescription', 'block_efquicklist'), $displaymode[4], $displaymode));
+    $settings->add(new admin_setting_configselect('block_efquicklist/displaymode', get_string('displaymode', 'block_efquicklist'),
+        get_string('displaymodedescription', 'block_efquicklist'), $displaymode[4], $displaymode));
 
-	$settings->add(new admin_setting_heading('block_efquicklist/title', get_string('title', 'block_efquicklist'), ''));
+    $settings->add(new admin_setting_heading('block_efquicklist/title', get_string('title', 'block_efquicklist'), ''));
 
-	$settings->add(new admin_setting_configtext('block_efquicklist/title', get_string('title', 'block_efquicklist'), '', get_string('blockname', 'block_efquicklist')));
-    
-	$settings->add(new admin_setting_heading('block_efquicklist/splitterms', get_string('splitterms', 'block_efquicklist'), ''));
+    $settings->add(new admin_setting_configtext('block_efquicklist/title', get_string('title', 'block_efquicklist'), '',
+        get_string('blockname', 'block_efquicklist')));
 
-	$settings->add(new admin_setting_configcheckbox('block_efquicklist/splitterms', get_string('splitterms', 'block_efquicklist'), get_string('splittermsdescription', 'block_efquicklist'), 0));
-    
-	$settings->add(new admin_setting_heading('block_efquicklist/restrictcontext', get_string('restrictcontext', 'block_efquicklist'), ''));
+    $settings->add(new admin_setting_heading('block_efquicklist/splitterms', get_string('splitterms', 'block_efquicklist'), ''));
 
-	$settings->add(new admin_setting_configcheckbox('block_efquicklist/restrictcontext', get_string('restrictcontext', 'block_efquicklist'), get_string('restrictcontextdescription', 'block_efquicklist'), 0));
+    $settings->add(new admin_setting_configcheckbox('block_efquicklist/splitterms', get_string('splitterms', 'block_efquicklist'),
+        get_string('splittermsdescription', 'block_efquicklist'), 0));
+
+    $settings->add(new admin_setting_heading('block_efquicklist/restrictcontext',
+        get_string('restrictcontext', 'block_efquicklist'), ''));
+
+    $settings->add(new admin_setting_configcheckbox('block_efquicklist/restrictcontext',
+        get_string('restrictcontext', 'block_efquicklist'), get_string('restrictcontextdescription', 'block_efquicklist'), 0));
 }

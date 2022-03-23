@@ -51,6 +51,7 @@ M.block_efquicklist = {
             on: {
                 success: function(id, o) {
                     var courses = Y.JSON.parse(o.responseText);
+                    console.log(courses);
                     list = Y.Node.create('<ul />');
                     if (courses.length > 0) {
                         Y.Array.each(courses, function(course) {
@@ -76,9 +77,11 @@ M.block_efquicklist = {
                                 case '3':
                                     displaystr = course.shortname + ': ' + course.fullname;
                                     break;
-                                //case '4': displaystr = course.fullname+' - '+ Y.util.Date.format(new Date(course.startdate * 1000), {format: "%d-%m-%Y"}); break;
                                 case '4':
                                     displaystr = course.fullname + ' - ' + day + ' ' + monthNames[monthIndex] + ' ' + year;
+                                    break;
+                                case '5':
+                                    displaystr = course.fullname + ' - ' + course.category;
                                     break;
                             }
                             Y.Node.create('<li><a href="' + M.cfg.wwwroot + '/course/view.php?id=' + course.id + '">' + displaystr + '</a></li>').appendTo(list);

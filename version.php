@@ -24,7 +24,7 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2020050900;
+$plugin->version = 2022032300;
 $plugin->requires = 2014051200;
 $plugin->component = 'block_efquicklist';
 $plugin->maturity = MATURITY_STABLE;
