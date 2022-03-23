@@ -47,6 +47,7 @@ if (isloggedin() && has_capability('block/efquicklist:use', $context) && confirm
 
         if (!empty($courses)) {
             foreach ($courses as $course) {
+                $course->category = block_efquicklist::get_coursecategory($course->category);
                 $output[] = $course;
             }
             $courses->close();
