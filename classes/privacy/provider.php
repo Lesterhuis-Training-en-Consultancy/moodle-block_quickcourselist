@@ -17,7 +17,7 @@
 /**
  * Privacy Subsystem implementation for block_efquicklist.
  *
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license   https://ltnc.nl/ltc-plugin-freeware-licentie
  *
  * @package   moodle-block_efquicklist
  * @copyright 2018-11-20 MFreak.nl
