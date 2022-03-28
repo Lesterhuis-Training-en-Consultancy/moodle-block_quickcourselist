@@ -27,6 +27,7 @@ if ($ADMIN->fulltree) {
     $displaymode[3] = $displaymode[2] . ' & ' . $displaymode[1];
     $displaymode[4] = $displaymode[2] . ' & ' . get_string('coursestartdate', 'block_efquicklist');
     $displaymode[5] = $displaymode[2] . ' & ' . get_string('coursecategory', 'block_efquicklist');
+	$displaymode[6] = $displaymode[1] . ' & ' . $displaymode[5];
 
     $settings->add(new admin_setting_configselect('block_efquicklist/displaymode', get_string('displaymode', 'block_efquicklist'),
         get_string('displaymodedescription', 'block_efquicklist'), $displaymode[4], $displaymode));

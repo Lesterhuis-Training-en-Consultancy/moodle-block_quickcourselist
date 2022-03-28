@@ -30,12 +30,18 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
-## Version (3.10.1) - 2022-03-233
+## Version (3.10.2) - 2022-03-25
+
+##### Added
+- Course Short name, Course Full name and Categorie format
+- Adding new licentie agreement
+- Version number no issue found in Moodle 3.11 and Moodle 4.0
+
+## Version (3.10.1) - 2022-03-23
 
 ##### Added
 - Course Full name and Categorie format
 - Dutch translations
-
 ## Version (3.10) - 2020-11-13
 
 ##### Updated

@@ -17,10 +17,13 @@
 /**
  * Defines the class for the Quick Course List block
  *
- * @package    block_efquicklist
- * @author      Mark Johnson <mark.johnson@tauntons.ac.uk>
- * @copyright   2010 Tauntons College, UK
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     block_efquicklist
+ * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
+ * @author      Onno Schuit v2.1 commissioned by Lesterhuis Training en Consultancy
+ * @author      Luuk Verhoeven v3.8 to 3.10.1 commissioned by Lesterhuis Training en Consultancy
+ * @author      Gemma Lesterhuis v3.10.2 commissioned by Lesterhuis Training en Consultancy
+ * @copyright   2010 Tauntons College, UK v2.0 and Lesterhuis Training en Consultancy v2.1 and further
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware https://ltnc.nl/ltc-plugin-freeware-licentie
  */
 defined('MOODLE_INTERNAL') || die;
 
@@ -126,6 +129,7 @@ class block_efquicklist extends block_base {
                             case 1: $resultstr = $course->shortname; break;
                             case 2: $resultstr = $course->fullname; break;
                             case 5: $resultstr = $course->fullname .' - '. $course->category; break;
+							case 6: $resultstr = $course->shortname .' - '. $course->fullname .' - '. $course->category; break;
                             default: $resultstr = $course->shortname.': '.$course->fullname; break;
                         endswitch;
 

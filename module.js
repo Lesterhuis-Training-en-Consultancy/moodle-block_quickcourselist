@@ -83,6 +83,9 @@ M.block_efquicklist = {
                                 case '5':
                                     displaystr = course.fullname + ' - ' + course.category;
                                     break;
+								case '6':
+                                    displaystr = course.shortname + ' - ' + course.fullname + ' - ' + course.category;
+                                    break;
                             }
                             Y.Node.create('<li><a href="' + M.cfg.wwwroot + '/course/view.php?id=' + course.id + '">' + displaystr + '</a></li>').appendTo(list);
                         });

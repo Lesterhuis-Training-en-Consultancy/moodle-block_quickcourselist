@@ -18,11 +18,10 @@
 /**
  * Defines lang strings for Quick Course List
  *
- * @package    blocks
- * @subpackage  efquicklist
- * @author      Gemma Lesterhuis <gemma@ltnc.nl>
- * @copyright   2022 Lesterhuis Training en Consultancy, LeendeNL
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package     block_efquicklist
+ * @author      Gemma Lesterhuis 
+ * @copyright   Lesterhuis Training en Consultancy 
+ * @license  	https://ltnc.nl/ltc-plugin-freeware-licentie
  */
 defined('MOODLE_INTERNAL') || die;
 
