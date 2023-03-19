@@ -30,6 +30,10 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (4.1.1) - 2023-03-19
+- 4.1 / PHP 80 check - no issues found
+- Version bump
+
 ## Version (3.10.2) - 2022-03-25
 
 ##### Added
