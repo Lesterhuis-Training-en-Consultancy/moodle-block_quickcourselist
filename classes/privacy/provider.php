@@ -15,23 +15,23 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Privacy Subsystem implementation for block_efquicklist.
+ * Privacy Subsystem implementation for block_quickcourselist.
  *
  * @license   https://ltnc.nl/ltc-plugin-freeware-licentie
  *
- * @package   moodle-block_efquicklist
+ * @package   moodle-block_quickcourselist
  * @copyright 2018-11-20 MFreak.nl
  * @author    Luuk Verhoeven
  **/
 
-namespace block_efquicklist\privacy;
+namespace block_quickcourselist\privacy;
 
 defined('MOODLE_INTERNAL') || die();
 
 /**
- * Privacy Subsystem for block_efquicklist implementing null_provider.
+ * Privacy Subsystem for block_quickcourselist implementing null_provider.
  *
- * @package   moodle-block_efquicklist
+ * @package   moodle-block_quickcourselist
  * @copyright 2018-11-20 MFreak.nl
  * @author    Luuk Verhoeven
  */
@@ -43,7 +43,8 @@ class provider implements \core_privacy\local\metadata\null_provider {
      *
      * @return  string
      */
-    public static function get_reason() : string {
+    public static function get_reason(): string {
         return 'privacy:metadata';
     }
+
 }

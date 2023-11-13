@@ -1,16 +1,16 @@
-body.jsenabled .block_efquicklist .submitbutton {
+body.jsenabled .block_quickcourselist .submitbutton {
     display: none;
 }
 
-.block_efquicklist .quickcourseprogress {
+.block_quickcourselist .quickcourseprogress {
     visibility: hidden;
 }
 
-.block_efquicklist ul {
+.block_quickcourselist ul {
     margin: 0;
 }
 
-.block_efquicklist li {
+.block_quickcourselist li {
     list-style-type: none;
     margin-left: 0;
     padding-bottom: 0.2em;

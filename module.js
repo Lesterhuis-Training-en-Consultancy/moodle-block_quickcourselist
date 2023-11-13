@@ -1,4 +1,4 @@
-M.block_efquicklist = {
+M.block_quickcourselist = {
 
     sesskey: null,
 
@@ -83,7 +83,7 @@ M.block_efquicklist = {
                                 case '5':
                                     displaystr = course.fullname + ' - ' + course.category;
                                     break;
-								case '6':
+                                case '6':
                                     displaystr = course.shortname + ' - ' + course.fullname + ' - ' + course.category;
                                     break;
                             }

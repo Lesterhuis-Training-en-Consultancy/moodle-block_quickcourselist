@@ -14,14 +14,13 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
  * Defines lang strings for Quick Course List
  *
- * @package     block_efquicklist
- * @author      Gemma Lesterhuis 
- * @copyright   Lesterhuis Training en Consultancy 
- * @license  	https://ltnc.nl/ltc-plugin-freeware-licentie
+ * @package     block_quickcourselist
+ * @author      Gemma Lesterhuis
+ * @copyright   Lesterhuis Training en Consultancy
+ * @license     https://ltnc.nl/ltc-plugin-freeware-licentie
  */
 defined('MOODLE_INTERNAL') || die;
 
@@ -35,7 +34,8 @@ $string['displaymode'] = 'Resultaat Zoekformat';
 $string['displaymodedescription'] = 'Op welke wijze moeten de resultaten worden getoond.';
 $string['title'] = 'Blok titel';
 $string['splitterms'] = 'Split zoek termen';
-$string['splittermsdescription'] = 'Wanneer ingeschakeld, zoek termen gescheidde tot spaties zullen apart gezocht worden in plaats van als een geheel(bv "Course 101" zal "Course Maths 101" en "Course Science 101" vinden). Inschakelen van deze functie kan leidde tot preformance problemen in Moodle omgevingen met veel cursussen. ';
+$string['splittermsdescription'] =
+    'Wanneer ingeschakeld, zoek termen gescheidde tot spaties zullen apart gezocht worden in plaats van als een geheel(bv "Course 101" zal "Course Maths 101" en "Course Science 101" vinden). Inschakelen van deze functie kan leidde tot preformance problemen in Moodle omgevingen met veel cursussen. ';
 $string['restrictcontext'] = 'zoek specifiek op categorie';
 $string['restrictcontextdescription'] = 'Wanneer ingeschakeld, zullen alleen cursussen in de huidige categorie worden getoond';
 $string['coursestartdate'] = 'Startdatum';

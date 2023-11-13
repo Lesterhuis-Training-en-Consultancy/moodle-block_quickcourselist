@@ -14,15 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
  * Defines lang strings for Quick Course List
  *
- * @package    blocks
+ * @package     blocks
  * @subpackage  efquicklist
  * @author      Alexander Kiy <alekiy@uni-potsdam.de>
  * @copyright   2013 University of Potsdam, GER
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die;
 

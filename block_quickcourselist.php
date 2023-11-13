@@ -17,13 +17,14 @@
 /**
  * Defines the class for the Quick Course List block
  *
- * @package     block_efquicklist
+ * @package     block_quickcourselist
  * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
  * @author      Onno Schuit v2.1 commissioned by Lesterhuis Training en Consultancy
  * @author      Luuk Verhoeven v3.8 to 3.10.1 commissioned by Lesterhuis Training en Consultancy
  * @author      Gemma Lesterhuis v3.10.2 commissioned by Lesterhuis Training en Consultancy
  * @copyright   2010 Tauntons College, UK v2.0 and Lesterhuis Training en Consultancy v2.1 and further
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware https://ltnc.nl/ltc-plugin-freeware-licentie
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware
+ *              https://ltnc.nl/ltc-plugin-freeware-licentie
  */
 defined('MOODLE_INTERNAL') || die;
 
@@ -32,31 +33,47 @@ defined('MOODLE_INTERNAL') || die;
  *
  * @uses block_base
  */
-class block_efquicklist extends block_base {
+class block_quickcourselist extends block_base {
 
+    /**
+     * @var mixed hash-like object or single value, return false no config found
+     */
     private $globalconf;
 
+    /**
+     * @return void
+     */
     public function init() {
         $this->content_type = BLOCK_TYPE_TEXT;
-        $this->globalconf = get_config('block_efquicklist');
+        $this->globalconf = get_config('block_quickcourselist');
+
         if (isset($this->globalconf->title) && !empty($this->globalconf->title)) {
             $this->title = $this->globalconf->title;
         } else {
-            $this->title = get_string('efquicklist', 'block_efquicklist');
+            $this->title = get_string('efquicklist', 'block_quickcourselist');
         }
     }
 
-    //stop it showing up on any add block lists
-    public function applicable_formats() {
-        return (array(
+    /**
+     * Stop it showing up on any add block lists
+     *
+     * @return array
+     */
+    public function applicable_formats(): array {
+        return [
             'all' => false,
             'site' => true,
             'my' => true,
-            'course-index' => true
-        ));
+            'course-index' => true,
+        ];
     }
 
-    public function has_config() {
+    /**
+     * Returns whether the current block has a configuration.
+     *
+     * @return true if the current view has a configuration, false otherwise
+     */
+    public function has_config(): bool {
         return true;
     }
 
@@ -64,9 +81,7 @@ class block_efquicklist extends block_base {
      * Displays the form for searching courses, and the results if a search as been submitted
      *
      * @access public
-     * @return stdClass|stdObject
-     * @throws coding_exception
-     * @throws moodle_exception
+     * @return object
      */
     public function get_content() {
         global $OUTPUT;
@@ -81,44 +96,48 @@ class block_efquicklist extends block_base {
         if (has_capability('block/efquicklist:use', $context_block)) {
 
             $list_contents = '';
-            $anchor = html_writer::tag('a', '', array('name' => 'efquicklistanchor'));
-            $inputattrs = array(
+            $anchor = html_writer::tag('a', '', ['name' => 'efquicklistanchor']);
+            $inputattrs = [
                 'autocomplete' => 'off',
                 'name' => 'efquicklistsearch',
                 'id' => 'efquicklistsearch',
-                'value' => $search
-            );
+                'value' => $search,
+            ];
             $input = html_writer::empty_tag('input', $inputattrs);
 
-
-            $progressattrs = array(
+            $progressattrs = [
                 'src' => $OUTPUT->image_url('i/loading_small', 'moodle'),
                 'class' => 'quickcourseprogress',
                 'id' => 'quickcourseprogress',
-                'alt' => get_string('loading', 'block_efquicklist')
-            );
+                'alt' => get_string('loading', 'block_quickcourselist'),
+            ];
             $progress = html_writer::empty_tag('img', $progressattrs);
-            $submitattrs = array(
+            $submitattrs = [
                 'type' => 'submit',
                 'name' => 'quickcoursesubmit',
                 'class' => 'submitbutton',
-                'value' => get_string('search')
-            );
+                'value' => get_string('search'),
+            ];
             $submit = html_writer::empty_tag('input', $submitattrs);
-            $formattrs = array(
+            $formattrs = [
                 'id' => 'quickcourseform',
                 'method' => 'post',
-                'action' => $this->page->url->out().'#efquicklistanchor'
-            );
-            $form = html_writer::tag('form', $input.$progress.$submit, $formattrs);
+                'action' => $this->page->url->out() . '#efquicklistanchor',
+            ];
+            $form = html_writer::tag('form', $input . $progress . $submit, $formattrs);
 
             if (!empty($quickcoursesubmit)) {
 
-                $courses = self::get_courses($search, $context_block, $this->globalconf->splitterms,
-                                             $this->globalconf->restrictcontext, $this->page->context);
+                $courses = self::get_courses(
+                    $search,
+                    $context_block,
+                    $this->globalconf->splitterms,
+                    $this->globalconf->restrictcontext,
+                    $this->page->context
+                );
                 if (!empty($courses)) {
                     foreach ($courses as $course) {
-                        $url = new moodle_url('/course/view.php', array('id' => $course->id));
+                        $url = new moodle_url('/course/view.php', ['id' => $course->id]);
                         $resultstr = null;
                         if (isset($this->globalconf->displaymode)) {
                             $displaymode = $this->globalconf->displaymode;
@@ -126,68 +145,101 @@ class block_efquicklist extends block_base {
                             $displaymode = 3;
                         }
                         switch ($displaymode):
-                            case 1: $resultstr = $course->shortname; break;
-                            case 2: $resultstr = $course->fullname; break;
-                            case 5: $resultstr = $course->fullname .' - '. $course->category; break;
-							case 6: $resultstr = $course->shortname .' - '. $course->fullname .' - '. $course->category; break;
-                            default: $resultstr = $course->shortname.': '.$course->fullname; break;
+                            case 1:
+                                $resultstr = $course->shortname;
+                                break;
+                            case 2:
+                                $resultstr = $course->fullname;
+                                break;
+                            case 5:
+                                $resultstr = $course->fullname . ' - ' . $course->category;
+                                break;
+                            case 6:
+                                $resultstr = $course->shortname . ' - ' . $course->fullname . ' - ' . $course->category;
+                                break;
+                            default:
+                                $resultstr = $course->shortname . ': ' . $course->fullname;
+                                break;
                         endswitch;
 
-                        $link = html_writer::tag('a',
-                                                 $resultstr,
-                                                 array('href' => $url->out()));
+                        $link = html_writer::tag(
+                            'a',
+                            $resultstr,
+                            ['href' => $url->out()]
+                        );
                         $li = html_writer::tag('li', $link);
                         $list_contents .= $li;
                     }
                 }
             }
-            if(!isset($this->globalconf->displaymode)) {
+            if (!isset($this->globalconf->displaymode)) {
                 $this->globalconf->displaymode = '3';
             }
-            $list = html_writer::tag('ul', $list_contents, array('id' => 'efquicklist'));
+            $list = html_writer::tag('ul', $list_contents, ['id' => 'efquicklist']);
 
-            $this->content->text = $anchor.$form.$list;
+            $this->content->text = $anchor . $form . $list;
 
-            $jsmodule = array(
-                'name'  =>  'block_efquicklist',
-                'fullpath'  =>  '/blocks/efquicklist/module.js',
-                'requires'  =>  array('base', 'node', 'json', 'io')
-            );
-            $jsdata = array(
+            $jsmodule = [
+                'name' => 'block_quickcourselist',
+                'fullpath' => '/blocks/efquicklist/module.js',
+                'requires' => ['base', 'node', 'json', 'io'],
+            ];
+            $jsdata = [
                 'instanceid' => $this->instance->id,
                 'sesskey' => sesskey(),
                 'displaymode' => $this->globalconf->displaymode,
-                'contextid' => $this->page->context->id
-            );
+                'contextid' => $this->page->context->id,
+            ];
 
-            $this->page->requires->js_init_call('M.block_efquicklist.init',
-                                                $jsdata,
-                                                false,
-                                                $jsmodule);
+            $this->page->requires->js_init_call(
+                'M.block_quickcourselist.init',
+                $jsdata,
+                false,
+                $jsmodule
+            );
         }
-        $this->content->footer='';
+        $this->content->footer = '';
+
         return $this->content;
     }
 
-    public static function get_courses($search, $blockcontext, $splitterms = false,
-                                       $restrictcontext = false, $pagecontext = null) {
+    /**
+     * Get courses matching search string
+     *
+     * @param string $search
+     * @param context $blockcontext
+     * @param bool $splitterms
+     * @param bool $restrictcontext
+     * @param null $pagecontext
+     * @return moodle_recordset
+     */
+    public static function get_courses(
+        string $search,
+        context $blockcontext,
+        bool $splitterms = false,
+        bool $restrictcontext = false,
+        $pagecontext = null
+    ): moodle_recordset {
         global $DB;
-        $params = array(SITEID);
+        $params = [SITEID];
         $where = 'id != ? AND (';
         if ($splitterms) {
             $terms = explode(' ', $search);
             $like = '%1$s LIKE';
             foreach ($terms as $key => $term) {
                 $like .= ' ?';
-                if ($key < count($terms)-1) {
+                if ($key < count($terms) - 1) {
                     $like .= ' AND %1$s LIKE';
                 }
-                $terms[$key] = '%'.$term.'%';
+                $terms[$key] = '%' . $term . '%';
             }
             $params = array_merge($params, $terms);
-            $where .= sprintf($like, 'shortname').' OR '.sprintf($like, 'fullname').' OR '.sprintf($like, 'idnumber');
+            $where .= sprintf($like, 'shortname')
+                . ' OR ' . sprintf($like, 'fullname')
+                . ' OR ' . sprintf($like, 'idnumber');
+
         } else {
-            $params = array_merge($params, array("%$search%", "%$search%", "%$search%"));
+            $params = array_merge($params, ["%$search%", "%$search%", "%$search%"]);
             $where .= 'shortname LIKE ? OR fullname LIKE ? OR idnumber like ? ';
         }
         $where .= ')';
@@ -222,5 +274,6 @@ class block_efquicklist extends block_base {
 
         return $categorylist[$categoryid] ?? '';
     }
+
 }
 

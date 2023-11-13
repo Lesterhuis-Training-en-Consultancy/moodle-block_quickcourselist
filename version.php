@@ -17,18 +17,20 @@
 /**
  * Defines the metadata for the Quick Course List block
  *
- * @package     block_efquicklist
+ * @package     block_quickcourselist
  * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
  * @author      Onno Schuit v2.1 commissioned by Lesterhuis Training en Consultancy
  * @author      Luuk Verhoeven v3.8 to 3.10.1 commissioned by Lesterhuis Training en Consultancy
  * @author      Gemma Lesterhuis v3.10.2 commissioned by Lesterhuis Training en Consultancy
  * @copyright   2010 Tauntons College, UK v2.0 and Lesterhuis Training en Consultancy v2.1 and further
- * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware https://ltnc.nl/ltc-plugin-freeware-licentie
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware
+ *              https://ltnc.nl/ltc-plugin-freeware-licentie
  */
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2023031900;
+$plugin->version = 2023111300;
 $plugin->requires = 2014051200;
-$plugin->component = 'block_efquicklist';
+$plugin->component = 'block_quickcourselist';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = '4.1.1';
+$plugin->supported = [39, 402];
