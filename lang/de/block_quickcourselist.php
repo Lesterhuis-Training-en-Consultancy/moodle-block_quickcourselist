@@ -18,7 +18,7 @@
  * Defines lang strings for Quick Course List
  *
  * @package     blocks
- * @subpackage  efquicklist
+ * @subpackage  quickcourselist
  * @author      Alexander Kiy <alekiy@uni-potsdam.de>
  * @copyright   2013 University of Potsdam, GER
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -29,7 +29,7 @@ $string['blockname'] = 'EF Kurssuche';
 $string['loading'] = 'Lade...';
 $string['pluginname'] = 'EF Kurssuche';
 $string['pluginnameplural'] = 'Kurssuche';
-$string['efquicklist:use'] = 'Kurssuche benutzen';
-$string['efquicklist'] = 'Kurssuche';
+$string['quickcourselist:use'] = 'Kurssuche benutzen';
+$string['quickcourselist'] = 'Kurssuche';
 $string['displaymode'] = 'Ergbnisanzeigeformat';
 $string['displaymodedescription'] = 'In welcher Form sollen die Suchergebnisse angezeigt werden.';

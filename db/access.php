@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Defines the block/efquicklist:use capability for the Quick Course List block
+ * Defines the block/quickcourselist:use capability for the Quick Course List block
  *
  * @package     block_quickcourselist
  * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $capabilities = [
 
-    'block/efquicklist:use' => [
+    'block/quickcourselist:use' => [
 
         'captype' => 'view',
         'contextlevel' => CONTEXT_SYSTEM,
@@ -41,14 +41,14 @@ $capabilities = [
             'manager' => CAP_ALLOW,
         ],
     ],
-    'block/efquicklist:myaddinstance' => [
+    'block/quickcourselist:myaddinstance' => [
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
             'manager' => CAP_ALLOW,
         ],
     ],
-    'block/efquicklist:addinstance' => [
+    'block/quickcourselist:addinstance' => [
         'riskbitmask' => RISK_SPAM | RISK_XSS,
 
         'captype' => 'write',

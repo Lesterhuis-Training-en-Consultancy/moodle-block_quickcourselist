@@ -32,7 +32,7 @@ require_once('../../config.php');
 defined('MOODLE_INTERNAL') || die;
 
 require_once($CFG->dirroot . '/blocks/moodleblock.class.php');
-require_once($CFG->dirroot . '/blocks/efquicklist/block_quickcourselist.php');
+require_once($CFG->dirroot . '/blocks/quickcourselist/block_quickcourselist.php');
 
 $instanceid = required_param('instanceid', PARAM_INT);
 $context = context_block::instance($instanceid);
@@ -40,7 +40,7 @@ $course = required_param('course', PARAM_TEXT);
 $pagecontextid = required_param('contextid', PARAM_INT);
 $config = get_config('block_quickcourselist');
 
-if (isloggedin() && has_capability('block/efquicklist:use', $context) && confirm_sesskey()) {
+if (isloggedin() && has_capability('block/quickcourselist:use', $context) && confirm_sesskey()) {
 
     $output = [];
     if (!empty($course)) {

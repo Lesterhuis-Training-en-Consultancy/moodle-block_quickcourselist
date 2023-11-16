@@ -50,7 +50,7 @@ class block_quickcourselist extends block_base {
         if (isset($this->globalconf->title) && !empty($this->globalconf->title)) {
             $this->title = $this->globalconf->title;
         } else {
-            $this->title = get_string('efquicklist', 'block_quickcourselist');
+            $this->title = get_string('quickcourselist', 'block_quickcourselist');
         }
     }
 
@@ -93,7 +93,7 @@ class block_quickcourselist extends block_base {
         $context_block = context_block::instance($this->instance->id);
         $search = optional_param('efquicklistsearch', '', PARAM_TEXT);
         $quickcoursesubmit = optional_param('quickcoursesubmit', false, PARAM_TEXT);
-        if (has_capability('block/efquicklist:use', $context_block)) {
+        if (has_capability('block/quickcourselist:use', $context_block)) {
 
             $list_contents = '';
             $anchor = html_writer::tag('a', '', ['name' => 'efquicklistanchor']);
@@ -175,13 +175,13 @@ class block_quickcourselist extends block_base {
             if (!isset($this->globalconf->displaymode)) {
                 $this->globalconf->displaymode = '3';
             }
-            $list = html_writer::tag('ul', $list_contents, ['id' => 'efquicklist']);
+            $list = html_writer::tag('ul', $list_contents, ['id' => 'quickcourselist']);
 
             $this->content->text = $anchor . $form . $list;
 
             $jsmodule = [
                 'name' => 'block_quickcourselist',
-                'fullpath' => '/blocks/efquicklist/module.js',
+                'fullpath' => '/blocks/quickcourselist/module.js',
                 'requires' => ['base', 'node', 'json', 'io'],
             ];
             $jsdata = [

@@ -39,7 +39,7 @@ M.block_quickcourselist = {
     search: function(string) {
 
         var Y = this.Y;
-        uri = M.cfg.wwwroot + '/blocks/efquicklist/quickcourse.php';
+        uri = M.cfg.wwwroot + '/blocks/quickcourselist/quickcourse.php';
         if (this.xhr != null) {
             this.xhr.abort();
         }
@@ -90,8 +90,8 @@ M.block_quickcourselist = {
                             Y.Node.create('<li><a href="' + M.cfg.wwwroot + '/course/view.php?id=' + course.id + '">' + displaystr + '</a></li>').appendTo(list);
                         });
                     }
-                    Y.one('#efquicklist').replace(list);
-                    list.setAttribute('id', 'efquicklist');
+                    Y.one('#quickcourselist').replace(list);
+                    list.setAttribute('id', 'quickcourselist');
                     this.progress.setStyle('visibility', 'hidden');
                 },
 
@@ -106,8 +106,8 @@ M.block_quickcourselist = {
                         this.progress.setStyle('visibility', 'hidden');
                         if (o.statusText !== undefined) {
                             var list = Y.Node.create('<p>' + o.statusText + '</p>');
-                            Y.one('#efquicklist').replace(list);
-                            list.set('id', 'efquicklist');
+                            Y.one('#quickcourselist').replace(list);
+                            list.set('id', 'quickcourselist');
                         }
                     }
                 }
