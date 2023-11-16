@@ -16,7 +16,6 @@
 
 /**
  * Server-side script for generating response to AJAX search request
- * TODO should be rewritten to use Moodle's external API
  *
  * @package     block_quickcourselist
  * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
@@ -31,6 +30,7 @@
 require_once('../../config.php');
 defined('MOODLE_INTERNAL') || die;
 
+// TODO should be rewritten to use Moodle's external API
 require_login();
 require_once($CFG->dirroot . '/blocks/moodleblock.class.php');
 require_once($CFG->dirroot . '/blocks/quickcourselist/block_quickcourselist.php');
