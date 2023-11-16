@@ -35,6 +35,16 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (4.1.2) - 2023-03-19
+
+##### Updated
+
+- Refactor to block_quickcourselist
+- Fix behat 
+- Fix code guidelines
+- Fix issues with query `splitterms` setting
+
+
 ## Version (4.1.1) - 2023-03-19
 
 - 4.1 / PHP 80 check - no issues found

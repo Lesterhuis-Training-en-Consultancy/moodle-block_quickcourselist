@@ -19,19 +19,17 @@
  *
  * @license   https://ltnc.nl/ltc-plugin-freeware-licentie
  *
- * @package   moodle-block_quickcourselist
+ * @package   block_quickcourselist
  * @copyright 2018-11-20 MFreak.nl
  * @author    Luuk Verhoeven
  **/
 
 namespace block_quickcourselist\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy Subsystem for block_quickcourselist implementing null_provider.
  *
- * @package   moodle-block_quickcourselist
+ * @package   block_quickcourselist
  * @copyright 2018-11-20 MFreak.nl
  * @author    Luuk Verhoeven
  */

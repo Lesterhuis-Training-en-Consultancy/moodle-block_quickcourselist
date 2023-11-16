@@ -1,9 +1,14 @@
+/**
+ * TODO should be converted to AMD module
+ * @type {{init: M.block_quickcourselist.init, search: M.block_quickcourselist.search, sesskey: null}}
+ */
 M.block_quickcourselist = {
 
     sesskey: null,
 
     /**
      * Init
+     * TODO should be converted to web service in the future
      *
      * @param Y
      * @param instanceid
@@ -39,7 +44,7 @@ M.block_quickcourselist = {
     search: function(string) {
 
         var Y = this.Y;
-        uri = M.cfg.wwwroot + '/blocks/quickcourselist/quickcourse.php';
+        uri = M.cfg.wwwroot + '/blocks/quickcourselist/quickcourselist.php';
         if (this.xhr != null) {
             this.xhr.abort();
         }

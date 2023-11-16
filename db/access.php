@@ -50,7 +50,6 @@ $capabilities = [
     ],
     'block/quickcourselist:addinstance' => [
         'riskbitmask' => RISK_SPAM | RISK_XSS,
-
         'captype' => 'write',
         'contextlevel' => CONTEXT_BLOCK,
         'archetypes' => [

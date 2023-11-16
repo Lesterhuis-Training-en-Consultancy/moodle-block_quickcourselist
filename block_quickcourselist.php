@@ -26,7 +26,6 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware
  *              https://ltnc.nl/ltc-plugin-freeware-licentie
  */
-defined('MOODLE_INTERNAL') || die;
 
 /**
  * Class definition for the Quick Course List Block
@@ -39,6 +38,21 @@ class block_quickcourselist extends block_base {
      * @var mixed hash-like object or single value, return false no config found
      */
     private $globalconf;
+
+    /**
+     * get_sql_like_fields
+     *
+     * @return string
+     */
+    private static function get_sql_like_fields(): string {
+        global $DB;
+
+        return ' AND ' .
+            '(' . $DB->sql_like('shortname', '?', false) .
+            ' OR ' . $DB->sql_like('fullname', '?', false) .
+            ' OR ' . $DB->sql_like('idnumber', '?', false) .
+            ')';
+    }
 
     /**
      * @return void
@@ -90,17 +104,19 @@ class block_quickcourselist extends block_base {
         }
 
         $this->content = new stdClass();
-        $context_block = context_block::instance($this->instance->id);
+        $contextblock = context_block::instance($this->instance->id);
         $search = optional_param('efquicklistsearch', '', PARAM_TEXT);
         $quickcoursesubmit = optional_param('quickcoursesubmit', false, PARAM_TEXT);
-        if (has_capability('block/quickcourselist:use', $context_block)) {
+        if (has_capability('block/quickcourselist:use', $contextblock)) {
 
-            $list_contents = '';
+            // TODO mustache template.
+            $listcontents = '';
             $anchor = html_writer::tag('a', '', ['name' => 'efquicklistanchor']);
             $inputattrs = [
                 'autocomplete' => 'off',
                 'name' => 'efquicklistsearch',
                 'id' => 'efquicklistsearch',
+                'class' => 'form-control',
                 'value' => $search,
             ];
             $input = html_writer::empty_tag('input', $inputattrs);
@@ -130,52 +146,51 @@ class block_quickcourselist extends block_base {
 
                 $courses = self::get_courses(
                     $search,
-                    $context_block,
+                    $contextblock,
                     $this->globalconf->splitterms,
                     $this->globalconf->restrictcontext,
                     $this->page->context
                 );
-                if (!empty($courses)) {
-                    foreach ($courses as $course) {
-                        $url = new moodle_url('/course/view.php', ['id' => $course->id]);
-                        $resultstr = null;
-                        if (isset($this->globalconf->displaymode)) {
-                            $displaymode = $this->globalconf->displaymode;
-                        } else {
-                            $displaymode = 3;
-                        }
-                        switch ($displaymode):
-                            case 1:
-                                $resultstr = $course->shortname;
-                                break;
-                            case 2:
-                                $resultstr = $course->fullname;
-                                break;
-                            case 5:
-                                $resultstr = $course->fullname . ' - ' . $course->category;
-                                break;
-                            case 6:
-                                $resultstr = $course->shortname . ' - ' . $course->fullname . ' - ' . $course->category;
-                                break;
-                            default:
-                                $resultstr = $course->shortname . ': ' . $course->fullname;
-                                break;
-                        endswitch;
 
-                        $link = html_writer::tag(
-                            'a',
-                            $resultstr,
-                            ['href' => $url->out()]
-                        );
-                        $li = html_writer::tag('li', $link);
-                        $list_contents .= $li;
+                foreach ($courses as $course) {
+                    $url = new moodle_url('/course/view.php', ['id' => $course->id]);
+                    $resultstr = null;
+                    if (isset($this->globalconf->displaymode)) {
+                        $displaymode = $this->globalconf->displaymode;
+                    } else {
+                        $displaymode = 3;
                     }
+                    switch ($displaymode):
+                        case 1:
+                            $resultstr = $course->shortname;
+                            break;
+                        case 2:
+                            $resultstr = $course->fullname;
+                            break;
+                        case 5:
+                            $resultstr = $course->fullname . ' - ' . $course->category;
+                            break;
+                        case 6:
+                            $resultstr = $course->shortname . ' - ' . $course->fullname . ' - ' . $course->category;
+                            break;
+                        default:
+                            $resultstr = $course->shortname . ': ' . $course->fullname;
+                            break;
+                    endswitch;
+
+                    $link = html_writer::tag(
+                        'a',
+                        $resultstr,
+                        ['href' => $url->out()]
+                    );
+                    $li = html_writer::tag('li', $link);
+                    $listcontents .= $li;
                 }
             }
             if (!isset($this->globalconf->displaymode)) {
                 $this->globalconf->displaymode = '3';
             }
-            $list = html_writer::tag('ul', $list_contents, ['id' => 'quickcourselist']);
+            $list = html_writer::tag('ul', $listcontents, ['id' => 'quickcourselist']);
 
             $this->content->text = $anchor . $form . $list;
 
@@ -222,27 +237,23 @@ class block_quickcourselist extends block_base {
     ): moodle_recordset {
         global $DB;
         $params = [SITEID];
-        $where = 'id != ? AND (';
+        $where = 'id != ? ';
         if ($splitterms) {
             $terms = explode(' ', $search);
-            $like = '%1$s LIKE';
-            foreach ($terms as $key => $term) {
-                $like .= ' ?';
-                if ($key < count($terms) - 1) {
-                    $like .= ' AND %1$s LIKE';
-                }
-                $terms[$key] = '%' . $term . '%';
+            foreach ($terms as $term) {
+                $where .= self::get_sql_like_fields();
+                $params[] = '%' . $term . '%';
+                $params[] = '%' . $term . '%';
+                $params[] = '%' . $term . '%';
             }
-            $params = array_merge($params, $terms);
-            $where .= sprintf($like, 'shortname')
-                . ' OR ' . sprintf($like, 'fullname')
-                . ' OR ' . sprintf($like, 'idnumber');
 
         } else {
-            $params = array_merge($params, ["%$search%", "%$search%", "%$search%"]);
-            $where .= 'shortname LIKE ? OR fullname LIKE ? OR idnumber like ? ';
+            $where .= self::get_sql_like_fields();
+            $params[] = '%' . $search . '%';
+            $params[] = '%' . $search . '%';
+            $params[] = '%' . $search . '%';
         }
-        $where .= ')';
+
         if (!has_capability('moodle/course:viewhiddencourses', $blockcontext)) {
             $where .= ' AND visible=1';
         }

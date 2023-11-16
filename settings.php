@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -9,11 +8,24 @@
 //
 // Moodle is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+/**
+ * Setting page for the Quick Course List block
+ *
+ * @package     block_quickcourselist
+ * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
+ * @author      Onno Schuit v2.1 commissioned by Lesterhuis Training en Consultancy
+ * @author      Luuk Verhoeven v3.8 to 3.10.1 commissioned by Lesterhuis Training en Consultancy
+ * @author      Gemma Lesterhuis v3.10.2 commissioned by Lesterhuis Training en Consultancy
+ * @copyright   2010 Tauntons College, UK v2.0 and Lesterhuis Training en Consultancy v2.1 and further
+ * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware
+ *              https://ltnc.nl/ltc-plugin-freeware-licentie
+ */
 
 defined('MOODLE_INTERNAL') || die();
 
