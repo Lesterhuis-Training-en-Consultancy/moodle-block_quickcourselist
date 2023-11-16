@@ -32,5 +32,5 @@ $plugin->version = 2023111300;
 $plugin->requires = 2014051200;
 $plugin->component = 'block_quickcourselist';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '4.1.1';
+$plugin->release = '4.1.2';
 $plugin->supported = [39, 402];
