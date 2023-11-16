@@ -1,5 +1,5 @@
 @block @block_quickcourselist
-Feature:
+Feature: Test different settings in quick course list block
   As an admin
   In order to navigate to course pages quickly
   I need to be able to search for courses by name
@@ -36,7 +36,6 @@ Feature:
     And I should see "C2: Course2" in the "block_quickcourselist" "block"
     And I should see "C3: Course3" in the "block_quickcourselist" "block"
     And I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
-
     When I set the field "efquicklistsearch" to "Course1"
     And I press "quickcoursesubmit"
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
@@ -44,7 +43,6 @@ Feature:
     And I should not see "C2: Course2" in the "block_quickcourselist" "block"
     And I should not see "C3: Course3" in the "block_quickcourselist" "block"
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
-
     When I set the field "efquicklistsearch" to "1a"
     And I press "quickcoursesubmit"
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
@@ -52,7 +50,6 @@ Feature:
     And I should not see "C2: Course2" in the "block_quickcourselist" "block"
     And I should not see "C3: Course3" in the "block_quickcourselist" "block"
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
-
     When I set the field "efquicklistsearch" to "Maths101"
     And I press "quickcoursesubmit"
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
@@ -66,7 +63,6 @@ Feature:
     Given I log in as "admin"
     And the following config values are set as admin:
       | restrictcontext | 1 | block_quickcourselist |
-
     When I am on course index
     And I set the field "efquicklistsearch" to "Course"
     And I press "quickcoursesubmit"
@@ -75,7 +71,6 @@ Feature:
     And I should see "C2: Course2" in the "block_quickcourselist" "block"
     And I should see "C3: Course3" in the "block_quickcourselist" "block"
     And I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
-
     Given I am on course index
     And I click on "Cat1" "link"
     When I set the field "efquicklistsearch" to "Course"
@@ -85,7 +80,6 @@ Feature:
     And I should not see "C2: Course2" in the "block_quickcourselist" "block"
     And I should not see "C3: Course3" in the "block_quickcourselist" "block"
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
-
     Given I am on course index
     And I click on "Cat2" "link"
     When I set the field "efquicklistsearch" to "Course"
@@ -95,7 +89,6 @@ Feature:
     And I should see "C2: Course2" in the "block_quickcourselist" "block"
     And I should see "C3: Course3" in the "block_quickcourselist" "block"
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
-
     Given I am on course index
     And I click on "Cat1" "link"
     And I click on "Cat3" "link"
@@ -117,7 +110,6 @@ Feature:
     And I press "quickcoursesubmit"
     Then I should see "C1" in the "block_quickcourselist" "block"
     And I should not see "Course1" in the "block_quickcourselist" "block"
-
     Given the following config values are set as admin:
       | displaymode | 2 | block_quickcourselist |
     And  I am on course index
@@ -125,7 +117,6 @@ Feature:
     And I press "quickcoursesubmit"
     Then I should see "Course1" in the "block_quickcourselist" "block"
     And I should not see "C1" in the "block_quickcourselist" "block"
-
     Given the following config values are set as admin:
       | displaymode | 3 | block_quickcourselist |
     And  I am on course index
@@ -142,4 +133,3 @@ Feature:
     When I set the field "efquicklistsearch" to "Course 101"
     And I press "quickcoursesubmit"
     And I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
-
