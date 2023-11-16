@@ -18,18 +18,20 @@ Feature:
       | Course3          | C3        | topics | CAT2     |
       | Course Maths 101 | Maths101  | topics | CAT3     |
     And I log in as "admin"
-    And I follow "Turn editing on"
-    And I add the "Quick Course List" block
-    And I configure the "Quick Course List" block
-    And I set the field "Page contexts" to "Display throughout the entire site"
+    And I turn editing mode on
+    And I am on course index
+    And I add the "EF Quick Course List" block
+    And I configure the "EF Quick Course List" block
+    And I set the field "Display on page types" to "Any page"
     And I press "Save changes"
     And I log out
 
   @block_quickcourselist_default
   Scenario: Search with default settings
     Given I log in as "admin"
-    When I set the field "efquicklistsearch" to "Course"
-    Then I should see "C1: Course1" in the "block_quickcourselist" "block"
+    When I am on course index
+    Then I set the field "efquicklistsearch" to "Course"
+    And I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
     And I should see "C2: Course2" in the "block_quickcourselist" "block"
     And I should see "C3: Course3" in the "block_quickcourselist" "block"
@@ -61,8 +63,7 @@ Feature:
     Given I log in as "admin"
     And the following config values are set as admin:
       | restrictcontext | 1 | block_quickcourselist |
-    And I am on homepage
-
+    And I am on course index
     When I set the field "efquicklistsearch" to "Course"
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -70,7 +71,7 @@ Feature:
     And I should see "C3: Course3" in the "block_quickcourselist" "block"
     And I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
 
-    Given I follow "Courses"
+    Given I am on course index
     And I follow "Cat1"
     When I set the field "efquicklistsearch" to "Course"
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
@@ -79,7 +80,7 @@ Feature:
     And I should not see "C3: Course3" in the "block_quickcourselist" "block"
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
 
-    Given I follow "Courses"
+    Given I am on course index
     And I follow "Cat2"
     When I set the field "efquicklistsearch" to "Course"
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
@@ -88,7 +89,7 @@ Feature:
     And I should see "C3: Course3" in the "block_quickcourselist" "block"
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
 
-    Given I follow "Courses"
+    Given I am on course index
     And I follow "Cat1"
     And I follow "Cat3"
     When I set the field "efquicklistsearch" to "Course"
@@ -129,4 +130,3 @@ Feature:
     And I am on homepage
     When I set the field "efquicklistsearch" to "Course 101"
     And I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
-
