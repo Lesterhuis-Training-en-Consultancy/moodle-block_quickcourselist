@@ -97,6 +97,7 @@ Feature:
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
 
     Given I am on course index
+    And I click on "Cat1" "link"
     And I click on "Cat3" "link"
     When I set the field "efquicklistsearch" to "Course"
     And I press "quickcoursesubmit"
