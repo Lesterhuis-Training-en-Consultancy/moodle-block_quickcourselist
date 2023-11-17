@@ -28,9 +28,9 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
-$string['blockname'] = 'EF Quick Course List';
+$string['blockname'] = 'Quick Course List';
 $string['loading'] = 'Loading...';
-$string['pluginname'] = 'EF Quick Course List';
+$string['pluginname'] = 'Quick Course List';
 $string['pluginnameplural'] = 'Quick Course Lists';
 $string['quickcourselist:use'] = 'Use Quickcourse List';
 $string['quickcourselist'] = 'Quick Course List';
