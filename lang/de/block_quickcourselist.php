@@ -25,9 +25,9 @@
  */
 defined('MOODLE_INTERNAL') || die;
 
-$string['blockname'] = 'EF Kurssuche';
+$string['blockname'] = 'Kurssuche';
 $string['loading'] = 'Lade...';
-$string['pluginname'] = 'EF Kurssuche';
+$string['pluginname'] = 'Kurssuche';
 $string['pluginnameplural'] = 'Kurssuche';
 $string['quickcourselist:use'] = 'Kurssuche benutzen';
 $string['quickcourselist'] = 'Kurssuche';
