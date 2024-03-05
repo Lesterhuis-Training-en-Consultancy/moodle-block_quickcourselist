@@ -22,6 +22,7 @@
  * @copyright   Lesterhuis Training en Consultancy
  * @license     https://ltnc.nl/ltc-plugin-freeware-licentie
  */
+
 defined('MOODLE_INTERNAL') || die;
 
 $string['blockname'] = 'Cursus snelzoeken';
