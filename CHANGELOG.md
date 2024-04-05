@@ -35,6 +35,9 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (4.4.0) - 2024-04-05
+- Tested for Moodle 4.4 and PHP 8.1
+
 ## Version (4.2.0) - 2024-03-05
 - Refactored and upgraded for Moodle 4.2
 
