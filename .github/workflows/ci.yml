@@ -14,4 +14,4 @@ jobs:
       disable_release : true
       disable_phpunit : true
       release_branches: main
-      min_php : 7.4
+      min_php : 8.1
