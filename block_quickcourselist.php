@@ -123,10 +123,13 @@ class block_quickcourselist extends block_base {
             $anchor = html_writer::tag('a', '', ['name' => 'efquicklistanchor']);
             $inputattrs = [
                 'autocomplete' => 'off',
+                'type' => 'search',
                 'name' => 'efquicklistsearch',
                 'id' => 'efquicklistsearch',
                 'class' => 'form-control',
                 'value' => $search,
+                'aria-label' => 'Search for courses',
+                'aria-description' => 'Search results will appear below',
             ];
             $input = html_writer::empty_tag('input', $inputattrs);
 
@@ -148,6 +151,7 @@ class block_quickcourselist extends block_base {
                 'id' => 'quickcourseform',
                 'method' => 'post',
                 'action' => $this->page->url->out() . '#efquicklistanchor',
+                'role' => 'search',
             ];
             $form = html_writer::tag('form', $input . $progress . $submit, $formattrs);
 
