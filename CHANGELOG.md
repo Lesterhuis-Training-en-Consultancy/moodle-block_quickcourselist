@@ -35,6 +35,9 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (4.5.0) - 2024-09-10
+- Tested for Moodle 4.5 and PHP 8.1
+
 ## Version (4.4.1) - 2024-07-18
 - Solves  Accessibility issue https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block_quickcourselist/issues/1
 
