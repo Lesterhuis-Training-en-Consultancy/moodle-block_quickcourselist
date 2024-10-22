@@ -4,6 +4,8 @@ body.jsenabled .block_quickcourselist .submitbutton {
 
 .block_quickcourselist .quickcourseprogress {
     visibility: hidden;
+    width: 16px;
+    height: 16px;
 }
 
 .block_quickcourselist ul {

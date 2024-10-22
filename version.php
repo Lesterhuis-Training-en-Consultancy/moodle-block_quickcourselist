@@ -29,9 +29,9 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2024071800;
+$plugin->version = 2024091000;
 $plugin->requires = 2014051200;
 $plugin->component = 'block_quickcourselist';
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '4.4.1';
-$plugin->supported = [401, 404];
+$plugin->release = '4.5.0';
+$plugin->supported = [401, 405];
