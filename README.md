@@ -14,8 +14,7 @@ Released Under the GNU General Public Licence http://www.gnu.org/copyleft/gpl.ht
 ## Update
 
 On request of Euroforum BV the extra feature to search on startdate and moodle course IDNumber has been added.
-This version of the plugin is being maintained by Ldesign Media and Lesterhuis Training & Consultancy and released under Freeware
-Licence https://ltnc.nl/ltc-plugin-freeware-licentie
+This version of the plugin is being maintained by Ldesign Media and Lesterhuis Training & Consultancy and released under version 3 of the GNU General Public License
 
 ## Security or bugs
 
