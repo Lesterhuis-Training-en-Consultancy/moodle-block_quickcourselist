@@ -29,7 +29,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2024091000;
+$plugin->version = 2025041100;
 $plugin->requires = 2014051200;
 $plugin->component = 'block_quickcourselist';
 $plugin->maturity = MATURITY_STABLE;
