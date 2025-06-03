@@ -39,6 +39,9 @@ $string['splittermsdescription'] =
     'Wanneer ingeschakeld, zoek termen gescheidde tot spaties zullen apart gezocht worden in plaats van als een geheel(bv "Course 101" zal "Course Maths 101" en "Course Science 101" vinden). Inschakelen van deze functie kan leidde tot preformance problemen in Moodle omgevingen met veel cursussen. ';
 $string['restrictcontext'] = 'zoek specifiek op categorie';
 $string['restrictcontextdescription'] = 'Wanneer ingeschakeld, zullen alleen cursussen in de huidige categorie worden getoond';
+$string['displayavailablecoursesfirst'] = 'Toon beschikbare cursussen eerst';
+$string['displayavailablecoursesfirstdescription'] =
+    'Wanneer ingeschakeld, worden beschikbare cursussen eerst getoond in de zoekresultaten. Een gebruiker die de rechten heeft om verborgen cursussen te zien, zal de beschikbare cursussen als eerste in de zoekresultaten vinden.';
 $string['coursestartdate'] = 'Startdatum';
 $string['coursecategory'] = 'Categorie';
 $string['quickcourselist:myaddinstance'] = 'Voeg blok Cursus snelzoeken toe aan startpagina';
