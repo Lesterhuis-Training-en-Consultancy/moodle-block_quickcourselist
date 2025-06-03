@@ -97,8 +97,8 @@ M.block_quickcourselist = {
                             var nodecontent = '';
                             var iscoursehidden = course.visible === '0';
                             if (iscoursehidden) {
-                                var hiddencourseicon = '<i class="icon fa fa-eye-slash fa-fw text-primary" aria-hidden="true"></i>';
-                                nodecontent = '<li>' + hiddencourseicon + '<a href="' + href + '" class="font-italic text-muted">' + displaystr + '</a></li>';
+                                var hiddencourseicon = '<i class="icon fa fa-eye-slash fa-fw" aria-hidden="true"></i>';
+                                nodecontent = '<li><a href="' + href + '" class="font-italic text-muted">' + hiddencourseicon + displaystr + '</a></li>';
                             } else {
                                 nodecontent = '<li><a href="' + href + '">' + displaystr + '</a></li>'
                             }

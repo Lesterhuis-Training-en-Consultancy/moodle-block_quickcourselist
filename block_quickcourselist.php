@@ -196,14 +196,14 @@ class block_quickcourselist extends block_base {
                         $hiddencourseicon = html_writer::tag(
                             'i',
                             '',
-                            ['aria-hidden' => true, 'class' => 'icon fa fa-eye-slash fa-fw text-primary']
+                            ['aria-hidden' => true, 'class' => 'icon fa fa-eye-slash fa-fw']
                         );
                         $link = html_writer::tag(
                             'a',
-                            $resultstr,
+                            $hiddencourseicon . $resultstr,
                             ['href' => $url->out(), 'class' => 'font-italic text-muted']
                         );
-                        $nodecontent = $hiddencourseicon . $link;
+                        $nodecontent = $link;
                     } else {
                         $nodecontent = html_writer::tag(
                             'a',
