@@ -190,13 +190,29 @@ class block_quickcourselist extends block_base {
                             $resultstr = $course->shortname . ': ' . $course->fullname;
                             break;
                     endswitch;
+                    
+                    $iscoursehidden = $course->visible === '0';
+                    if ($iscoursehidden) {
+                        $hiddencourseicon = html_writer::tag(
+                            'i',
+                            '',
+                            ['aria-hidden' => true, 'class' => 'icon fa fa-eye-slash fa-fw text-primary']
+                        );
+                        $link = html_writer::tag(
+                            'a',
+                            $resultstr,
+                            ['href' => $url->out(), 'class' => 'font-italic text-muted']
+                        );
+                        $nodecontent = $hiddencourseicon . $link;
+                    } else {
+                        $nodecontent = html_writer::tag(
+                            'a',
+                            $resultstr,
+                            ['href' => $url->out()]
+                        );
+                    }
+                    $li = html_writer::tag('li', $nodecontent);
 
-                    $link = html_writer::tag(
-                        'a',
-                        $resultstr,
-                        ['href' => $url->out()]
-                    );
-                    $li = html_writer::tag('li', $link);
                     $listcontents .= $li;
                 }
             }
@@ -278,7 +294,7 @@ class block_quickcourselist extends block_base {
         }
 
         $order = 'shortname';
-        $fields = 'id, shortname, fullname, idnumber, startdate, category';
+        $fields = 'id, shortname, fullname, idnumber, startdate, category, visible';
 
         return $DB->get_recordset_select('course', $where, $params, $order, $fields);
     }

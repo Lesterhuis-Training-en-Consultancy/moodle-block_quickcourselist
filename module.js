@@ -71,6 +71,7 @@ M.block_quickcourselist = {
                             var day = date.getDate();
                             var monthIndex = date.getMonth();
                             var year = date.getFullYear();
+                            var href = M.cfg.wwwroot + '/course/view.php?id=' + course.id;
 
                             switch (displaymode) {
                                 case '1':
@@ -92,7 +93,17 @@ M.block_quickcourselist = {
                                     displaystr = course.shortname + ' - ' + course.fullname + ' - ' + course.category;
                                     break;
                             }
-                            Y.Node.create('<li><a href="' + M.cfg.wwwroot + '/course/view.php?id=' + course.id + '">' + displaystr + '</a></li>').appendTo(list);
+
+                            var nodecontent = '';
+                            var iscoursehidden = course.visible === '0';
+                            if (iscoursehidden) {
+                                var hiddencourseicon = '<i class="icon fa fa-eye-slash fa-fw text-primary" aria-hidden="true"></i>';
+                                nodecontent = '<li>' + hiddencourseicon + '<a href="' + href + '" class="font-italic text-muted">' + displaystr + '</a></li>';
+                            } else {
+                                nodecontent = '<li><a href="' + href + '">' + displaystr + '</a></li>'
+                            }
+                            
+                            Y.Node.create(nodecontent).appendTo(list);
                         });
                     }
                     Y.one('#quickcourselist').replace(list);
