@@ -190,7 +190,7 @@ class block_quickcourselist extends block_base {
                             $resultstr = $course->shortname . ': ' . $course->fullname;
                             break;
                     endswitch;
-                    
+
                     $iscoursehidden = $course->visible === '0';
                     if ($iscoursehidden) {
                         $hiddencourseicon = html_writer::tag(
@@ -292,14 +292,14 @@ class block_quickcourselist extends block_base {
                 $params[] = $pagecontext->instanceid;
             }
         }
-        
+
         $order = 'shortname';
         // If config 'displayavailablecoursesfirst' is set, we want to show available courses first.
         $globalconf = get_config('block_quickcourselist');
         if (isset($globalconf->displayavailablecoursesfirst) && $globalconf->displayavailablecoursesfirst) {
             $order = 'visible DESC, shortname ASC';
         }
-        
+
         $fields = 'id, shortname, fullname, idnumber, startdate, category, visible';
 
         return $DB->get_recordset_select('course', $where, $params, $order, $fields);
