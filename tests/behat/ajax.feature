@@ -31,24 +31,28 @@ Feature: Test ajax search in quick course list block
     Given I log in as "admin"
     When I am on course index
     Then I set the field "efquicklistsearch" to "Course"
+    And I wait "2" seconds
     And I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
     And I should see "C2: Course2" in the "block_quickcourselist" "block"
     And I should see "C3: Course3" in the "block_quickcourselist" "block"
     And I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
     When I set the field "efquicklistsearch" to "Course1"
+    And I wait "2" seconds
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
     And I should not see "C2: Course2" in the "block_quickcourselist" "block"
     And I should not see "C3: Course3" in the "block_quickcourselist" "block"
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
     When I set the field "efquicklistsearch" to "1a"
+    And I wait "2" seconds
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
     And I should not see "C2: Course2" in the "block_quickcourselist" "block"
     And I should not see "C3: Course3" in the "block_quickcourselist" "block"
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
     When I set the field "efquicklistsearch" to "Maths101"
+    And I wait "2" seconds
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
     And I should not see "C1a: Course1a" in the "block_quickcourselist" "block"
     And I should not see "C2: Course2" in the "block_quickcourselist" "block"
@@ -62,6 +66,7 @@ Feature: Test ajax search in quick course list block
       | restrictcontext | 1 | block_quickcourselist |
     And I am on course index
     When I set the field "efquicklistsearch" to "Course"
+    And I wait "2" seconds
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
     And I should see "C2: Course2" in the "block_quickcourselist" "block"
@@ -100,6 +105,7 @@ Feature: Test ajax search in quick course list block
       | displaymode | 1 | block_quickcourselist |
     And I am on homepage
     When I set the field "efquicklistsearch" to "C"
+    And I wait "2" seconds
     Then I should see "C1" in the "block_quickcourselist" "block"
     And I should not see "Course1" in the "block_quickcourselist" "block"
     Given the following config values are set as admin:
@@ -121,4 +127,5 @@ Feature: Test ajax search in quick course list block
       | splitterms | Course short name | block_quickcourselist |
     And I am on homepage
     When I set the field "efquicklistsearch" to "Course 101"
+    And I wait "2" seconds
     And I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"

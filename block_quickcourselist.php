@@ -19,10 +19,10 @@
  *
  * @package     block_quickcourselist
  * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
- * @author      Onno Schuit v2.1 commissioned by Lesterhuis Training en Consultancy
- * @author      Luuk Verhoeven v3.8 to 4.2.0 commissioned by Lesterhuis Training en Consultancy
- * @author      Gemma Lesterhuis v3.10.2 commissioned by Lesterhuis Training en Consultancy
- * @copyright   2010 Tauntons College, UK v2.0 and Lesterhuis Training en Consultancy v2.1 and further
+ * @author      Onno Schuit v2.1 commissioned by LTNC B.V.
+ * @author      Luuk Verhoeven v3.8 to 4.2.0 commissioned by LTNC B.V.
+ * @author      Gemma Lesterhuis v3.10.2 commissioned by LTNC B.V.
+ * @copyright   2010 Tauntons College, UK v2.0 and LTNC B.V. v2.1 and further
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware
  *              https://ltnc.nl/ltc-plugin-freeware-licentie
  */
@@ -33,10 +33,10 @@
  * @package     block_quickcourselist
  *
  * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
- * @author      Onno Schuit v2.1 commissioned by Lesterhuis Training en Consultancy
- * @author      Luuk Verhoeven v3.8 to 4.2.0 commissioned by Lesterhuis Training en Consultancy
- * @author      Gemma Lesterhuis v3.10.2 commissioned by Lesterhuis Training en Consultancy
- * @copyright   2010 Tauntons College, UK v2.0 and Lesterhuis Training en Consultancy v2.1 and further
+ * @author      Onno Schuit v2.1 commissioned by LTNC B.V.
+ * @author      Luuk Verhoeven v3.8 to 4.2.0 commissioned by LTNC B.V.
+ * @author      Gemma Lesterhuis v3.10.2 commissioned by LTNC B.V.
+ * @copyright   2010 Tauntons College, UK v2.0 and LTNC B.V. v2.1 and further
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware
  *              https://ltnc.nl/ltc-plugin-freeware-licentie
  */
@@ -118,7 +118,15 @@ class block_quickcourselist extends block_base {
         $quickcoursesubmit = optional_param('quickcoursesubmit', false, PARAM_TEXT);
         if (has_capability('block/quickcourselist:use', $contextblock)) {
 
-            // TODO mustache template.
+            /**
+             * TODO: Replace this HTML construction with proper Mustache templates.
+             * 
+             * Steps to implement:
+             * 1. Create templates in templates/ directory
+             * 2. Use the templates via $OUTPUT->render_from_template()
+             * 3. Separate presentation from logic
+             * 4. Ensure all strings are properly localized
+             */
             $listcontents = '';
             $anchor = html_writer::tag('a', '', ['name' => 'efquicklistanchor']);
             $inputattrs = [

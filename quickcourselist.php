@@ -19,10 +19,10 @@
  *
  * @package     block_quickcourselist
  * @author      Mark Johnson <mark.johnson@tauntons.ac.uk> v2.0
- * @author      Onno Schuit v2.1 commissioned by Lesterhuis Training en Consultancy
- * @author      Luuk Verhoeven v3.8 to 4.2 commissioned by Lesterhuis Training en Consultancy
- * @author      Gemma Lesterhuis v3.10.2 commissioned by Lesterhuis Training en Consultancy
- * @copyright   2010 Tauntons College, UK v2.0 and Lesterhuis Training en Consultancy v2.1 and further
+ * @author      Onno Schuit v2.1 commissioned by LTNC B.V.
+ * @author      Luuk Verhoeven v3.8 to 4.2 commissioned by LTNC B.V.
+ * @author      Gemma Lesterhuis v3.10.2 commissioned by LTNC B.V.
+ * @copyright   2010 Tauntons College, UK v2.0 and LTNC B.V. v2.1 and further
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later till v2.1, for other versions Freeware
  *              https://ltnc.nl/ltc-plugin-freeware-licentie
  */
@@ -30,7 +30,15 @@
 require_once('../../config.php');
 defined('MOODLE_INTERNAL') || die;
 
-// TODO should be rewritten to use Moodle's external API.
+/**
+ * TODO: This script should be rewritten to use Moodle's external API for better security and maintainability.
+ * 
+ * The current implementation should be replaced with:
+ * 1. A proper external API class in classes/external/
+ * 2. Web service declaration in db/services.php
+ * 3. Client-side code using the AMD module pattern
+ * 4. Following the Moodle Ajax documentation: https://docs.moodle.org/dev/AJAX
+ */
 
 require_login();
 require_once($CFG->dirroot . '/blocks/moodleblock.class.php');
