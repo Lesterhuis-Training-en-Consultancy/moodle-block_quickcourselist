@@ -31,7 +31,7 @@ Feature: Test ajax search in quick course list block
     Given I log in as "admin"
     And I am on site homepage
     When I set the field "efquicklistsearch" to "Course"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -40,7 +40,7 @@ Feature: Test ajax search in quick course list block
     And I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
     
     When I set the field "efquicklistsearch" to "Course1"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -49,7 +49,7 @@ Feature: Test ajax search in quick course list block
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
     
     When I set the field "efquicklistsearch" to "1a"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -58,7 +58,7 @@ Feature: Test ajax search in quick course list block
     And I should not see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
     
     When I set the field "efquicklistsearch" to "Maths101"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
     And I should not see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -73,7 +73,7 @@ Feature: Test ajax search in quick course list block
       | restrictcontext | 1 | block_quickcourselist |
     And I am on site homepage
     When I set the field "efquicklistsearch" to "Course"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -83,7 +83,7 @@ Feature: Test ajax search in quick course list block
     Given I am on course index
     And I follow "Cat1"
     When I set the field "efquicklistsearch" to "Course"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
     And I should see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -93,7 +93,7 @@ Feature: Test ajax search in quick course list block
     Given I am on course index
     And I follow "Cat2"
     When I set the field "efquicklistsearch" to "Course"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
     And I should not see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -104,7 +104,7 @@ Feature: Test ajax search in quick course list block
     And I follow "Cat1"
     And I follow "Cat3"
     When I set the field "efquicklistsearch" to "Course"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should not see "C1: Course1" in the "block_quickcourselist" "block"
     And I should not see "C1a: Course1a" in the "block_quickcourselist" "block"
@@ -119,7 +119,7 @@ Feature: Test ajax search in quick course list block
       | displaymode | 1 | block_quickcourselist |
     And I am on site homepage
     When I set the field "efquicklistsearch" to "C"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should see "C1" in the "block_quickcourselist" "block"
     And I should not see "Course1" in the "block_quickcourselist" "block"
@@ -128,7 +128,7 @@ Feature: Test ajax search in quick course list block
       | displaymode | 2 | block_quickcourselist |
     And I am on site homepage
     When I set the field "efquicklistsearch" to "C"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should see "Course1" in the "block_quickcourselist" "block"
     And I should not see "C1" in the "block_quickcourselist" "block"
@@ -137,7 +137,7 @@ Feature: Test ajax search in quick course list block
       | displaymode | 3 | block_quickcourselist |
     And I am on site homepage
     When I set the field "efquicklistsearch" to "C"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should see "C1: Course1" in the "block_quickcourselist" "block"
 
@@ -148,6 +148,6 @@ Feature: Test ajax search in quick course list block
       | splitterms | Course short name | block_quickcourselist |
     And I am on site homepage
     When I set the field "efquicklistsearch" to "Course 101"
-    And I wait until "M.ajaxQueue.complete" is true
+    And I wait "3" seconds
     And I wait until "#quickcourselist" "css_element" exists
     Then I should see "Maths101: Course Maths 101" in the "block_quickcourselist" "block"
