@@ -44,6 +44,9 @@ $string['splittermsdescription'] =
 $string['restrictcontext'] = 'Restrict results by category';
 $string['restrictcontextdescription'] =
     'When enabled, only courses under the current category will be returned from searches on category pages.';
+$string['displayavailablecoursesfirst'] = 'Display available courses first';
+$string['displayavailablecoursesfirstdescription'] =
+    'When enabled, available courses will be displayed first in the search results. A user that has the permissions to see hidden courses, will find the available courses as first listed in the search result.';
 $string['coursestartdate'] = 'Start date';
 $string['coursecategory'] = 'Category';
 $string['quickcourselist:myaddinstance'] = 'Add a new quickcourselist block to Dashboard';

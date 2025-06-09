@@ -191,12 +191,28 @@ class block_quickcourselist extends block_base {
                             break;
                     endswitch;
 
-                    $link = html_writer::tag(
-                        'a',
-                        $resultstr,
-                        ['href' => $url->out()]
-                    );
-                    $li = html_writer::tag('li', $link);
+                    $iscoursehidden = $course->visible === '0';
+                    if ($iscoursehidden) {
+                        $hiddencourseicon = html_writer::tag(
+                            'i',
+                            '',
+                            ['aria-hidden' => true, 'class' => 'icon fa fa-eye-slash fa-fw']
+                        );
+                        $link = html_writer::tag(
+                            'a',
+                            $hiddencourseicon . $resultstr,
+                            ['href' => $url->out(), 'class' => 'font-italic text-muted']
+                        );
+                        $nodecontent = $link;
+                    } else {
+                        $nodecontent = html_writer::tag(
+                            'a',
+                            $resultstr,
+                            ['href' => $url->out()]
+                        );
+                    }
+                    $li = html_writer::tag('li', $nodecontent);
+
                     $listcontents .= $li;
                 }
             }
@@ -278,7 +294,13 @@ class block_quickcourselist extends block_base {
         }
 
         $order = 'shortname';
-        $fields = 'id, shortname, fullname, idnumber, startdate, category';
+        // If config 'displayavailablecoursesfirst' is set, we want to show available courses first.
+        $globalconf = get_config('block_quickcourselist');
+        if (isset($globalconf->displayavailablecoursesfirst) && $globalconf->displayavailablecoursesfirst) {
+            $order = 'visible DESC, shortname ASC';
+        }
+
+        $fields = 'id, shortname, fullname, idnumber, startdate, category, visible';
 
         return $DB->get_recordset_select('course', $where, $params, $order, $fields);
     }

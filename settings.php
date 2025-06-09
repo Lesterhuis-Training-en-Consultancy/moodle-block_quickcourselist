@@ -106,4 +106,21 @@ if ($ADMIN->fulltree) {
             0
         )
     );
+
+    $settings->add(
+        new admin_setting_heading(
+            'block_quickcourselist/displayavailablecoursesfirst',
+            get_string('displayavailablecoursesfirst', 'block_quickcourselist'),
+            ''
+        )
+    );
+
+    $settings->add(
+        new admin_setting_configcheckbox(
+            'block_quickcourselist/displayavailablecoursesfirst',
+            get_string('displayavailablecoursesfirst', 'block_quickcourselist'),
+            get_string('displayavailablecoursesfirstdescription', 'block_quickcourselist'),
+            0
+        )
+    );
 }

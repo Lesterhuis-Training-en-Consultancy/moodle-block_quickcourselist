@@ -34,3 +34,5 @@ $string['quickcourselist:use'] = 'Kurssuche benutzen';
 $string['quickcourselist'] = 'Kurssuche';
 $string['displaymode'] = 'Ergbnisanzeigeformat';
 $string['displaymodedescription'] = 'In welcher Form sollen die Suchergebnisse angezeigt werden.';
+$string['displayavailablecoursesfirst'] = 'Verfügbare Kurse zuerst anzeigen';
+$string['displayavailablecoursesfirstdescription'] = 'Wenn aktiviert, werden verfügbare Kurse zuerst in den Suchergebnissen angezeigt. Ein Benutzer, der die Berechtigung hat, versteckte Kurse zu sehen, findet die verfügbaren Kurse als erstes in den Suchergebnissen.';
