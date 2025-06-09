@@ -30,15 +30,13 @@
 require_once('../../config.php');
 defined('MOODLE_INTERNAL') || die;
 
-/**
- * TODO: This script should be rewritten to use Moodle's external API for better security and maintainability.
- * 
- * The current implementation should be replaced with:
- * 1. A proper external API class in classes/external/
- * 2. Web service declaration in db/services.php
- * 3. Client-side code using the AMD module pattern
- * 4. Following the Moodle Ajax documentation: https://docs.moodle.org/dev/AJAX
- */
+// TODO: This script should be rewritten to use Moodle's external API for better security and maintainability.
+//
+// The current implementation should be replaced with:
+// 1. A proper external API class in classes/external/
+// 2. Web service declaration in db/services.php
+// 3. Client-side code using the AMD module pattern
+// 4. Following the Moodle Ajax documentation: https://docs.moodle.org/dev/AJAX
 
 require_login();
 require_once($CFG->dirroot . '/blocks/moodleblock.class.php');

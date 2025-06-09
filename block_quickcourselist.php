@@ -118,15 +118,13 @@ class block_quickcourselist extends block_base {
         $quickcoursesubmit = optional_param('quickcoursesubmit', false, PARAM_TEXT);
         if (has_capability('block/quickcourselist:use', $contextblock)) {
 
-            /**
-             * TODO: Replace this HTML construction with proper Mustache templates.
-             * 
-             * Steps to implement:
-             * 1. Create templates in templates/ directory
-             * 2. Use the templates via $OUTPUT->render_from_template()
-             * 3. Separate presentation from logic
-             * 4. Ensure all strings are properly localized
-             */
+            // TODO: Replace this HTML construction with proper Mustache templates.
+            //
+            // Steps to implement:
+            // 1. Create templates in templates/ directory
+            // 2. Use the templates via $OUTPUT->render_from_template()
+            // 3. Separate presentation from logic
+            // 4. Ensure all strings are properly localized
             $listcontents = '';
             $anchor = html_writer::tag('a', '', ['name' => 'efquicklistanchor']);
             $inputattrs = [
