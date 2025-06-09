@@ -16,14 +16,15 @@ Feature: Quick course list block search functionality
     And I log in as "admin"
     And I am on site homepage
     And I turn editing mode on
-    And I add the "EF Quick Course List" block
-    And I configure the "EF Quick Course List" block
+    And I add the "Quick Course List" block
+    And I configure the "Quick Course List" block
     And I set the field "Display on page types" to "Any page"
     And I press "Save changes"
 
   @block_quickcourselist_basic
   Scenario: Search for a course
     When I set the field "efquicklistsearch" to "Test"
-    And I wait "5" seconds
+    And I wait until "#quickcourselist" "css_element" exists
+    And I wait "1" seconds
     Then I should see "TC1: Test Course 1" in the "block_quickcourselist" "block"
     And I should see "TC2: Test Course 2" in the "block_quickcourselist" "block"
