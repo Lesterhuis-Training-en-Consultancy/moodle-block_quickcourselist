@@ -11,10 +11,20 @@ This block was written by Mike Worth <mike@mike-worth.com> and Mark Johnson <mar
 Copyright Taunton's College, Southampton.
 Released Under the GNU General Public Licence http://www.gnu.org/copyleft/gpl.html
 
+## CI Status
+
+[![CI](https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block_quickcourselist/actions/workflows/ci.yml/badge.svg?branch=fixcierror)](https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block_quickcourselist/actions/workflows/ci.yml)
+
+We're working on resolving CI issues and improving the code quality to better match Moodle coding standards. Current improvements include:
+- Updating JavaScript to modern standards
+- Implementing proper accessibility features
+- Fixing code style issues
+- Ensuring compatibility with PHP 8.1 and Moodle 4.5
+
 ## Update
 
 On request of Euroforum BV the extra feature to search on startdate and moodle course IDNumber has been added.
-This version of the plugin is being maintained by Ldesign Media and Lesterhuis Training & Consultancy and released under version 3 of the GNU General Public License
+This version of the plugin is being maintained by LTNC B.V. and released under version 3 of the GNU General Public License
 
 ## Security or bugs
 
@@ -30,7 +40,7 @@ We are happy to help you in any case though please be aware – only the code is
 
 We love hearing your thoughts and ideas! Though please be aware that implementing costs time.
 You could contribute by sending in your code, we will review the code and push it back. Reviewing the code will be free of charge
-and funded by LT&C.
+and funded by LTNC B.V.
 Though if we have to develop it for you, we will inform you of the costs.
 
 If you have any suggestions and/or improvements to contribute, please contact us by sending an email to servicedesk@ltnc.nl instead

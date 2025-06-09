@@ -35,6 +35,17 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (4.5.1) - 2025-06-03
+
+##### Added
+- Added feature to display available courses first in search results
+- Improved visuals of hidden courses in the search results
+
+##### Fixed
+- Fixed Behat tests for compatibility with modern Moodle environments
+- Fixed CI workflow issues
+- Fixed code to comply with Moodle coding standards
+
 ## Version (4.5.0) - 2024-09-10
 - Tested for Moodle 4.5 and PHP 8.1
 

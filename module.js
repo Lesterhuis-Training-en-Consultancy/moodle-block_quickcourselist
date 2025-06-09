@@ -1,5 +1,8 @@
 /**
- * TODO should be converted to AMD module
+ * TODO: This file should be converted to an AMD module using define() syntax.
+ * TODO: Replace YUI with vanilla JavaScript or jQuery.
+ * TODO: Use proper ES6+ features like const/let, arrow functions, and template literals.
+ * TODO: Implement proper error handling and accessibility features.
  * @type {{init: M.block_quickcourselist.init, search: M.block_quickcourselist.search, sesskey: null}}
  */
 M.block_quickcourselist = {
@@ -44,7 +47,7 @@ M.block_quickcourselist = {
     search: function(string) {
 
         var Y = this.Y;
-        uri = M.cfg.wwwroot + '/blocks/quickcourselist/quickcourselist.php';
+        var uri = M.cfg.wwwroot + '/blocks/quickcourselist/quickcourselist.php';
         if (this.xhr != null) {
             this.xhr.abort();
         }
@@ -56,8 +59,8 @@ M.block_quickcourselist = {
             on: {
                 success: function(id, o) {
                     var courses = Y.JSON.parse(o.responseText);
-                    console.log(courses);
-                    list = Y.Node.create('<ul />');
+                    // console.log(courses);
+                    var list = Y.Node.create('<ul />');
                     if (courses.length > 0) {
                         Y.Array.each(courses, function(course) {
                             var monthNames = [
@@ -75,22 +78,22 @@ M.block_quickcourselist = {
 
                             switch (displaymode) {
                                 case '1':
-                                    displaystr = course.shortname;
+                                    var displaystr = course.shortname;
                                     break;
                                 case '2':
-                                    displaystr = course.fullname;
+                                    var displaystr = course.fullname;
                                     break;
                                 case '3':
-                                    displaystr = course.shortname + ': ' + course.fullname;
+                                    var displaystr = course.shortname + ': ' + course.fullname;
                                     break;
                                 case '4':
-                                    displaystr = course.fullname + ' - ' + day + ' ' + monthNames[monthIndex] + ' ' + year;
+                                    var displaystr = course.fullname + ' - ' + day + ' ' + monthNames[monthIndex] + ' ' + year;
                                     break;
                                 case '5':
-                                    displaystr = course.fullname + ' - ' + course.category;
+                                    var displaystr = course.fullname + ' - ' + course.category;
                                     break;
                                 case '6':
-                                    displaystr = course.shortname + ' - ' + course.fullname + ' - ' + course.category;
+                                    var displaystr = course.shortname + ' - ' + course.fullname + ' - ' + course.category;
                                     break;
                             }
 
