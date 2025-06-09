@@ -15,5 +15,3 @@ jobs:
       disable_phpunit : true
       release_branches: main
       min_php : 8.1
-      postgres_user: postgres
-      postgres_password: postgres
