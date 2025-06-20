@@ -26,25 +26,23 @@ We're working on resolving CI issues and improving the code quality to better ma
 On request of Euroforum BV the extra feature to search on startdate and moodle course IDNumber has been added.
 This version of the plugin is being maintained by LTNC B.V. and released under version 3 of the GNU General Public License
 
-## Security or bugs
+## Bug and Problem support
 
-If you discover any security or bug related issues, please email servicedesk@ltnc.nl instead of using the issue tracker.
-These issues will be solved free of charge.
+This plugin is carefully developed and thoroughly tested, but bugs and problems can always appear.
+If you discover any security related issues, please email [servicedesk@ltnc.nl](mailto:servicedesk@ltnc.nl) instead of using the issue tracker.
 
-## Support
+Please bear in mind that bug and problem support is not free of charge. This is with the exception of developers that report and suggest a solution by creating a pull request. 
+Support is included for customers with an active LTNC Moodle Addon Maintenance Program subscription. For more information send an email to [sales@ltnc.nl](mailto:sales@ltnc.nl)
 
-If you need any support with this plugin, please send an email to servicedesk@ltnc.nl .
-We are happy to help you in any case though please be aware – only the code is GPL licenced not our support.
+## Feature proposal
+We are aware that members of the community will have other needs and would love to see them solved by this plugin. We are always interested to read about your feature proposals or even get a pull request from you, but please understand that we handle these as feature proposals and not as feature requests that we commit to implementing.
 
-## Improvements
+If you would like to see your feature proposal developed and included in our code base, please send an email to [sales@ltnc.nl](mailto:sales@ltnc.nl) with your suggestion so we can send you a formal proposal for paid development. 
 
-We love hearing your thoughts and ideas! Though please be aware that implementing costs time.
-You could contribute by sending in your code, we will review the code and push it back. Reviewing the code will be free of charge
-and funded by LTNC B.V.
-Though if we have to develop it for you, we will inform you of the costs.
+Please bear in mind that new features will only be added to Main Branch and only for Moodle versions that are in Current Stable release states (see [Moodle Release](https://moodledev.io/general/releases) for more information).
 
-If you have any suggestions and/or improvements to contribute, please contact us by sending an email to servicedesk@ltnc.nl instead
-of using the issue tracker.
-Help us making sure this plugin will be working in a new Moodle version.
-Donations are always welcome! Please contact servicedesk@ltnc.nl to hear how you can help us keeping this plugin alive for the
-community. 
+Customers with an active LTNC Moodle Addon Maintenance Program subscription may receive priority consideration for their feature proposals.
+
+## License
+
+QuickCourselist code is provided freely as open source software, under version 3 of the GNU General Public License.
